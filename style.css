@@ -17,6 +17,7 @@ h5 {
   font-weight: 600;
   font-size: 22px;
   margin-bottom: 10px;
+  transform: translateX(0px) translateY(-30px)
 }
 
 input {
@@ -27,6 +28,7 @@ input {
   text-align: center;
   color: #ffffff;
   border-bottom: 2px solid #ecf0f1;
+  transform: translateX(0px) translateY(-30px)
 }
 
 input::placeholder {
@@ -170,6 +172,11 @@ button {
   font-weight: 300;
   font-size: 15px;
   padding-left: 93%;
+}
+
+.greetings {
+  font-size: 40px;
+  transform: translateX(0px) translateY(-30px);  
 }
 
 @keyframes fadeIn {
