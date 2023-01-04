@@ -1,20 +1,20 @@
-body {
+* {
   padding: 0;
   margin: 0;
-  background-color: #2d3436;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
   text-align: center;
+  background-color: #2d3436;
   color: #ffffff;
   padding: 1%;
 }
 
-h1 {
-  font-size: 112px;
-  margin-top: 13%;
-  margin-bottom: 0px;
-}
-
 h5 {
-  font-weight: 100;
+  padding-top: 3%;
+  font-weight: 600;
   font-size: 22px;
   margin-bottom: 10px;
 }
@@ -30,7 +30,7 @@ input {
 }
 
 input::placeholder {
-  color: #f7ffc9;
+  color: #ffffff;
 }
 
 ul {
@@ -47,7 +47,7 @@ li:before {
   content: "🚀";
   display: inline;
   vertical-align: left;
-  padding: 5px;
+  padding: 1px;
 }
 
 button {
@@ -56,6 +56,88 @@ button {
   font-size: 22px;
 }
 
+#time {
+  display: flex;
+  gap: 60px;
+  color: #fff;
+  justify-content: center;
+  padding: 5%;
+}
+
+#time .circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#time .circle svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform: rotate(270deg);
+}
+
+#time .circle svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke: #191919;
+  stroke-width: 4;
+  transform: translate(5px, 5px);
+}
+
+#time .circle svg circle:nth-child(2) {
+  stroke: var(--clr);
+  stroke-dasharray: 440;
+}
+
+#time div {
+  position: absolute;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+}
+
+#time div span {
+  position: absolute;
+  transform: translateX(-50%) translateY(-10px);
+  font-size: 0.25em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+#time .ap {
+  position: relative;
+  font-size: 1em;
+  transform: translateX(-20px);
+}
+
+.dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  justify-content: center;
+}
+
+.dots::before {
+  content: " ";
+  position: absolute;
+  top: -3px;
+  width: 15px;
+  height: 15px;
+  background: var(--clr);
+  border-radius: 50%;
+  box-shadow: 0 0 30px var(--clr), 0 0 60px var(--clr);
+}
+
+#hours, #minutes, #seconds {
+  transform: translateX(2px) translateY(-12px);  
+}
 .form,
 .greetings {
   display: none;

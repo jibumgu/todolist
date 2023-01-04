@@ -14,9 +14,36 @@
       <span></span>
     </div>
 
-    <div class="js-clock">
-      <h1>00:00</h1>
+    <div id="time">
+      <div class="circle" style="--clr: #ff2972;">
+        <div class="dots hr_dot"></div>
+        <svg>
+          <circle cx="70" cy="70" r="70"></circle>
+          <circle cx="70" cy="70" r="70" id="hh"></circle>
+        </svg>
+        <div id="hours">00</div>
+      </div>
+      <div class="circle" style="--clr: #fee800;">
+        <div class="dots min_dot"></div>
+        <svg>
+          <circle cx="70" cy="70" r="70"></circle>
+          <circle cx="70" cy="70" r="70" id="mm"></circle>
+        </svg>
+        <div id="minutes">00</div>
+      </div>
+      <div class="circle" style="--clr: #04fc43;">
+        <div class="dots sec_dot"></div>
+        <svg>
+          <circle cx="70" cy="70" r="70"></circle>
+          <circle cx="70" cy="70" r="70" id="ss"></circle>
+        </svg>
+        <div id="seconds">00</div>
+      </div>
+      <div class="ap">
+        <div id="ampm">AM</div>
+      </div>
     </div>
+
     <h4 class="js-greetings greetings"></h4>
 
     <form class="js-form form">
@@ -26,7 +53,7 @@
     <h5>Write down things to do today</h5>
 
     <form class="js-toDoForm">
-      <input type="text" placeholder="" />
+      <input id="todo" type="text" placeholder="" />
     </form>
     <ul class="js-toDoList"></ul>
 
