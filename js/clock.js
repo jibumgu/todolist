@@ -37,5 +37,4 @@ setInterval(() => {
   hr_dot.style.transform = `rotate(${h * 30}deg)`;
   min_dot.style.transform = `rotate(${m * 6}deg)`;
   sec_dot.style.transform = `rotate(${s * 6}deg)`;
-
 });
