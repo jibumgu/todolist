@@ -1,4 +1,4 @@
-const canvas = document.querySelector(".bgsnow");
+const canvas = document.querySelector(".bgrain");
 
 const ctx = canvas.getContext("2d"); // 우리가 그리게될 도구다.
 const dpr = window.devicePixelRatio;
@@ -14,12 +14,13 @@ canvas.height = canvasHeight * dpr;
 ctx.scale(dpr, dpr);
 
 class Particle {
-  constructor(x, y, radius, vy) {
+  constructor(x, y, radius, vy, rain) {
     this.x = x;
     this.y = y;
     this.radius = radius;
     this.vy = vy;
     this.acc = 1.03;
+    this.rain = rain;
   }
   update() {
     this.vy *= this.acc;
@@ -27,14 +28,15 @@ class Particle {
   }
   draw() {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, (Math.PI / 180) * 360); // 파이 / 180 = 1도
+    // ctx.arc(this.x, this.y, 100, 0, (Math.PI / 180) * 360);
+    ctx.fillRect(this.x, this.y, 2, this.rain);
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
   }
 }
 
-const TOTAL = 30;
+const TOTAL = 100;
 const randomNumBetween = (min, max) => {
   return Math.random() * (max - min + 1) + min;
 };
@@ -46,7 +48,8 @@ for (let i = 0; i < TOTAL; i++) {
   const y = randomNumBetween(0, canvasHeight);
   const radius = randomNumBetween(1, 10);
   const vy = randomNumBetween(1, 1.5);
-  const particle = new Particle(x, y, radius, vy);
+  const rain = randomNumBetween(20, 80);
+  const particle = new Particle(x, y, radius, vy, rain);
   particles.push(particle);
 }
 
