@@ -1,4 +1,4 @@
-const canvas = document.querySelector(".bgsnow");
+const canvas = document.querySelector(".bgcloud");
 
 const ctx = canvas.getContext("2d");
 const dpr = window.devicePixelRatio;
@@ -14,27 +14,30 @@ canvas.height = canvasHeight * dpr;
 ctx.scale(dpr, dpr);
 
 class Particle {
-  constructor(x, y, radius, vy) {
+  constructor(x, y, radius, vy, fontsize) {
     this.x = x;
     this.y = y;
     this.radius = radius;
     this.vy = vy;
     this.acc = 1.03;
+    this.fontsize = fontsize;
   }
   update() {
-    this.vy *= this.acc;
-    this.y += this.vy;
+    // this.vy *= this.acc;
+    this.x += this.vy;
   }
   draw() {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, (Math.PI / 180) * 360); // 파이 / 180 = 1도
+    // ctx.arc(this.x, this.y, this.radius, 0, (Math.PI / 180) * 360); // 파이 / 180 = 1도
+    ctx.font = `${this.fontsize}px serif`;
+    ctx.fillText("☁️", this.x, this.y);
     ctx.fillStyle = "white";
-    ctx.fill();
+    // ctx.fill();
     ctx.closePath();
   }
 }
 
-const TOTAL = 30;
+const TOTAL = 5;
 const randomNumBetween = (min, max) => {
   return Math.random() * (max - min + 1) + min;
 };
@@ -44,9 +47,10 @@ let particles = [];
 for (let i = 0; i < TOTAL; i++) {
   const x = randomNumBetween(0, canvasWidth);
   const y = randomNumBetween(0, canvasHeight);
-  const radius = randomNumBetween(1, 10);
-  const vy = randomNumBetween(1, 1.5);
-  const particle = new Particle(x, y, radius, vy);
+  const radius = randomNumBetween(50, 100);
+  const vy = randomNumBetween(0.05, 0.08);
+  const fontsize = randomNumBetween(300, 700);
+  const particle = new Particle(x, y, radius, vy, fontsize);
   particles.push(particle);
 }
 
@@ -67,9 +71,9 @@ function animate() {
     particle.update();
     particle.draw();
 
-    if (particle.y - particle.radius > canvasHeight) {
-      particle.y = -particle.radius;
-      particle.x = randomNumBetween(0, canvasWidth);
+    if (particle.x > canvasWidth) {
+      particle.x = -particle.fontsize;
+      particle.y = randomNumBetween(0, canvasHeight);
       particle.radius = randomNumBetween(1, 10);
       particle.vy = randomNumBetween(1, 1.5);
     }
