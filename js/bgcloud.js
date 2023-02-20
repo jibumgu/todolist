@@ -1,5 +1,14 @@
 const canvas = document.querySelector(".bgcloud");
 
+const button = document.querySelector(".btn2");
+button.addEventListener("click", () => {
+  if (canvas.style.display === "none") {
+    canvas.style.display = "block";
+  } else {
+    canvas.style.display = "none";
+  }
+});
+
 const ctx = canvas.getContext("2d");
 const dpr = window.devicePixelRatio;
 
@@ -48,7 +57,7 @@ for (let i = 0; i < TOTAL; i++) {
   const x = randomNumBetween(0, canvasWidth);
   const y = randomNumBetween(0, canvasHeight);
   const radius = randomNumBetween(50, 100);
-  const vy = randomNumBetween(0.05, 0.08);
+  const vy = randomNumBetween(0.03, 0.05);
   const fontsize = randomNumBetween(300, 700);
   const particle = new Particle(x, y, radius, vy, fontsize);
   particles.push(particle);

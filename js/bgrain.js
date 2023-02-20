@@ -1,6 +1,15 @@
 const canvas = document.querySelector(".bgrain");
 
-const ctx = canvas.getContext("2d"); // 우리가 그리게될 도구다.
+const button = document.querySelector(".btn1");
+button.addEventListener("click", () => {
+  if (canvas.style.display === "none") {
+    canvas.style.display = "block";
+  } else {
+    canvas.style.display = "none";
+  }
+});
+
+const ctx = canvas.getContext("2d");
 const dpr = window.devicePixelRatio;
 
 const canvasWidth = innerWidth;

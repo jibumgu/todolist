@@ -1,5 +1,14 @@
 const canvas = document.querySelector(".bgsnow");
 
+const button = document.querySelector(".btn3");
+button.addEventListener("click", () => {
+  if (canvas.style.display === "none") {
+    canvas.style.display = "block";
+  } else {
+    canvas.style.display = "none";
+  }
+});
+
 const ctx = canvas.getContext("2d");
 const dpr = window.devicePixelRatio;
 
@@ -19,7 +28,7 @@ class Particle {
     this.y = y;
     this.radius = radius;
     this.vy = vy;
-    this.acc = 1.03;
+    this.acc = 1.005;
   }
   update() {
     this.vy *= this.acc;
@@ -34,7 +43,7 @@ class Particle {
   }
 }
 
-const TOTAL = 30;
+const TOTAL = 50;
 const randomNumBetween = (min, max) => {
   return Math.random() * (max - min + 1) + min;
 };
@@ -45,7 +54,7 @@ for (let i = 0; i < TOTAL; i++) {
   const x = randomNumBetween(0, canvasWidth);
   const y = randomNumBetween(0, canvasHeight);
   const radius = randomNumBetween(1, 10);
-  const vy = randomNumBetween(1, 1.5);
+  const vy = randomNumBetween(1, 1.1);
   const particle = new Particle(x, y, radius, vy);
   particles.push(particle);
 }
