@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 
-const IMG_NUMBER = 8;
+const IMG_NUMBER = 9;
 
 function genRandom() {
   return Math.ceil(Math.random() * IMG_NUMBER);

@@ -46,7 +46,7 @@ class Particle {
   }
 }
 
-const TOTAL = 5;
+const TOTAL = 3;
 const randomNumBetween = (min, max) => {
   return Math.random() * (max - min + 1) + min;
 };
@@ -57,7 +57,7 @@ for (let i = 0; i < TOTAL; i++) {
   const x = randomNumBetween(0, canvasWidth);
   const y = randomNumBetween(0, canvasHeight);
   const radius = randomNumBetween(50, 100);
-  const vy = randomNumBetween(0.03, 0.05);
+  const vy = randomNumBetween(0.005, 0.01);
   const fontsize = randomNumBetween(300, 700);
   const particle = new Particle(x, y, radius, vy, fontsize);
   particles.push(particle);
