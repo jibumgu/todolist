@@ -1,9 +1,9 @@
 const btns = document.querySelector(".btn1");
 const btnStyle = document.querySelectorAll(".bgbtn");
+const canvas1 = document.querySelector(".bgrain");
 let btnsBoolean = true;
 btns.addEventListener("click", () => {
   if (btnsBoolean === true) {
-    const canvas1 = document.querySelector(".bgrain");
     if (canvas1.style.display === "none") {
       btnStyle[0].style.cssText =
         "position: relative;top: 2px;box-shadow: none; ";

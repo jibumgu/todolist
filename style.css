@@ -19,7 +19,7 @@
   margin-bottom: 40px;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 6px;
   font-size: 25px;
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 3px 7px 3px black;
@@ -28,7 +28,7 @@
 }
 
 .bgbtn:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid white;
   transition: all 0.5s;
 }
 
@@ -242,6 +242,12 @@ button {
   height: 100%;
   z-index: -1;
   animation: fadeIn 0.5s linear;
+}
+
+.js-toDoForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .js-temp {
